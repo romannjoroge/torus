@@ -1,4 +1,4 @@
-import { createComposableSchema } from "./create"
+import { createComposableSchema } from "@/schema"
 import { NextResponse } from "next/server";
 
 export const dynamic = 'force-dynamic' // defaults to auto
