@@ -8,4 +8,4 @@ export interface IEVENTS {
     creator: string
 }
 
-export const events = DATABASE.collection<IEVENTS>("events");
+export const EVENTS = DATABASE.collection<IEVENTS>("events");

@@ -1,3 +1,4 @@
+import { createEvent } from "@/mongo/events";
 import { createComposableSchema } from "@/schema"
 import { NextResponse } from "next/server";
 
@@ -11,6 +12,14 @@ export async function POST(request: Request) {
     }
     let data = parsed.data;
 
+    // Create in DB
+    let eventID = await createEvent({
+        title: data.title,
+        bannerURL: data.bannerURL,
+        description: data.description,
+        rsvp: [data.userAddress],
+        creator: data.userAddress
+    });
 
-    return Response.json({ data })
+    return Response.json({ data, eventID })
 }
